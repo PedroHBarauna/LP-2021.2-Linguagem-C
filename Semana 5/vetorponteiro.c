@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include <conio.h>
 
-int main()
-{
+int main(){
     int *vetor;
     int i, x, y;
     x=5000;
@@ -14,4 +13,6 @@ int main()
         y++;
         printf("%d \n", vetor[i]);
     }
+
+    free()
 }
