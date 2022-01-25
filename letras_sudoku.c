@@ -1,76 +1,126 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-//Professor, boa noite! refiz o código do sudoku de uma maneira mais clara, caso possa te enviar também gostaria muito.
-//O sudoku com letras, que é o código presente, está com a leitura errada e não consegui arrumar de jeito nenhum. Acho que é um problema no scanf
-//A maneira mais fácil que encontrei de verificar a matriz de letras, é transformar de letras, para números, utilizando ascii.
-//Obrigado!
-
-
-//Verificaçao a linha
+//verifica linha
 int verificaLinha(char matriz[9][9]){
-    int verif[10] = {0};
+    int aux1=0, aux2=0, k, verif[10] = {0,0,0,0,0,0,0,0,0,0};
     for(int i = 0; i < 9; i++){
         for(int j = 0; j < 9; j++){
-            //pegar o valor e subtrai 64 para pegar o valor ASCII das letras
-            verif[matriz[i][j] - 64]++;
+            //faz a subtração da letra por ascii
+            aux1=matriz[i][j]-64;
+            //adiciona +1 para a posição da matriz, caso esteja repetida será invalidada
+            verif[aux1]+=1;
         }
-        for(int k = 1; k <= 9; k++){
-            if(verif[k] != 1){
-                return 0;
-            }
-            for(k = 1; k <= 9; k++){
-                verif[k] = 0;
-            }
+    for(k=1;k<=9;k++){
+        if(verif[k]==1){
+            aux2++;
         }
+        else{
+            return 0;
+        }
+    }
+    if(aux2!=9){
+        return 0;
+    }
+    for(int cont = 0; cont < 10; cont++) verif[cont] = 0;
+    aux2 = 0;
     }
     return 1;
 }
-
-//verificaçao da coluna
+//verifica coluna
 int verificaColuna(char matriz[9][9]){
-    int verif[10] = {0};
+    int aux1=0, aux2=0, k, verif[10] = {0,0,0,0,0,0,0,0,0,0};
     for(int i = 0; i < 9; i++){
         for (int j = 0; j < 9; j++){
-            //pegar o valor e subtrai 64 para pegar o valor ASCII das letras
-            verif[matriz[j][i] - 64]++;
+            //faz a subtração da letra por ascii
+            aux1=matriz[j][i]-64;
+            //adiciona +1 para a posição da matriz, caso esteja repetida será invalidada
+                verif[aux1]+=1;
         }
-        for(int k = 1; k <= 9; k++){
-            if(verif[k] != 1){
-                return 0;
-            }
-            for (k = 1; k <= 9; k++){
-                verif[k] = 0;
-            }
+    for(k=1;k<=9;k++){
+        if(verif[k]==1){
+            aux2++;
         }
+        else{
+            return 0;
+        }
+    }
+    if(aux2!=9){
+        return 0;
+    }
+    for(int cont = 0; cont < 10; cont++) verif[cont] = 0;
+    aux2 = 0;
     }
     return 1;
 }
-
-//verificaçao do cubo
+//verifica cubo
 int verificaCubo(char matriz[9][9]){
-    int verif[10] = {0};
-    //passando de bloco a bloco
+    int aux1=0, aux2=0, k, verif[10] = {0,0,0,0,0,0,0,0,0,0};
+    //passa de cubo em cubo
     for(int m = 0; m < 9; m += 3){
         for(int n = 0; n < 9; n += 3){
-            //passando linha e coluna de bloco a bloco
+            //linha e coluna 
             for(int i = m; i < m + 3; i++){
                 for(int j = n; j < n + 3; j++){
-                    verif[matriz[i][j] - 64]++; 
+                    //faz a subtração da letra por ascii
+                    aux1= matriz[i][j]-64;
+                    //adiciona +1 para a posição da matriz, caso esteja repetida será invalidada
+                        verif[aux1]+=1;
                 }
             }
-            for(int k = 1; k <= 9; k++){
-                if(verif[k] != 1){
+            for(k=1;k<=9;k++){
+                if(verif[k]==1){
+                    aux2++;
+                }
+                else{
                     return 0;
                 }
-                for(k = 1; k <= 9; k++){
-                    verif[k] = 0;
-                }
             }
+            if(aux2!=9){
+                return 0;
+            }
+
+            for(int cont = 0; cont < 10; cont++) verif[cont] = 0;
+            aux2 = 0;
         }
     }
-    return 1;
+        return 1;
+}
+
+int main(){
+    char matriz[9][9];
+	int num;
+    scanf("%d", &num);
+
+    for(int k = 1; k <= num; k++){
+        for(int i = 0; i < 9; i++){
+            for(int j = 0; j < 9; j++){
+                scanf("%c ", &matriz[i][j]);
+            }
+        }
+
+        printf("Instancia %d\n", k);
+
+        if(verificaLinha(matriz) == 1)
+        {
+            if(verificaColuna(matriz) == 1)
+            {
+                if(verificaCubo(matriz) == 1)
+                    printf("SIM\n");
+                else
+                    printf("NAO\n");
+            }
+            else{
+                printf("NAO\n");
+            }
+        
+        }
+        else{
+            printf("NAO\n");
+        }
+
+    }
+    return 0;
 }
 
 int main(){
