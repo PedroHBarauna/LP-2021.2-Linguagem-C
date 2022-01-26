@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//verifica linha
+
 int verificaLinha(int matriz[9][9]){
-    int aux1=0, aux2=0, k, verif[11] = {0,0,0,0,0,0,0,0,0,0,0};
+    int aux1=0, aux2=0, k, verif[11] = {0,0,0,0,0,0,0,0,0,0};
     for(int i = 0; i < 9; i++){
         for(int j = 0; j < 9; j++){
             aux1=matriz[i][j];
-            //adiciona +1 para a posição da matriz, caso esteja repetida será invalidada
             verif[aux1]+=1;
         }
     for(k=1;k<=9;k++){
@@ -26,13 +25,12 @@ int verificaLinha(int matriz[9][9]){
     }
     return 1;
 }
-//verifica coluna
+
 int verificaColuna(int matriz[9][9]){
-    int aux1=0, aux2=0, k, verif[11] = {0,0,0,0,0,0,0,0,0,0,0};
+    int aux1=0, aux2=0, k, verif[11] = {0,0,0,0,0,0,0,0,0,0};
     for(int i = 0; i < 9; i++){
         for (int j = 0; j < 9; j++){
             aux1=matriz[j][i];
-            //adiciona +1 para a posição da matriz, caso esteja repetida será invalidada
                 verif[aux1]+=1;
         }
     for(k=1;k<=9;k++){
@@ -51,17 +49,14 @@ int verificaColuna(int matriz[9][9]){
     }
     return 1;
 }
-//verifica cubo
+
 int verificaCubo(int matriz[9][9]){
-    int aux1=0, aux2=0, k, verif[11] = {0,0,0,0,0,0,0,0,0,0,0};
-    //passa de cubo em cubo
+    int aux1=0, aux2=0, k, verif[11] = {0,0,0,0,0,0,0,0,0,0};
     for(int m = 0; m < 9; m += 3){
         for(int n = 0; n < 9; n += 3){
-            //linha e coluna 
             for(int i = m; i < m + 3; i++){
                 for(int j = n; j < n + 3; j++){
                     aux1= matriz[i][j];
-                    //adiciona +1 para a posição da matriz, caso esteja repetida será invalidada
                         verif[aux1]+=1;
                 }
             }
@@ -118,7 +113,5 @@ int main(){
 
     }
     return 0;
-}
-
 }
 
