@@ -97,7 +97,6 @@ int verificaCubo(int matriz[9][9]){
                     }
                 }
                 if(aux2!=9){
-                    printf("aquiii");
                     return 0;
                 }
     
