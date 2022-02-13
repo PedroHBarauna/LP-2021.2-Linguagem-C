@@ -82,17 +82,28 @@ int verificaCubo(int matriz[9][9]){
                         verif[aux1]+=1;
                 }
             }
-            if (verif[10]==1){
-                for(k=1;k<=11;k++){
-                    if(verif[k]==1){
+            if (verif[0]>=1){
+                for(k=0;k<=9;k++){
+                            if(verif[k]>=1){
+                                aux2+=verif[k];
+                            }
+                        }
+                        if(aux2!=9){
+                            return 0;
+                        }
+                        for(int cont = 0; cont <= 10; cont++) verif[cont] = 0;
+                        aux2 = 0;
+            }
+            else{
+                for(k=0;k<=9;k++){
+                    if(verif[k]>=1){
                         aux2++;
                     }
                 }
                 if(aux2!=9){
                     return 0;
                 }
-    
-                for(int cont = 0; cont < 10; cont++) verif[cont] = 0;
+                for(int cont = 0; cont <= 10; cont++) verif[cont] = 0;
                 aux2 = 0;
             }
         }
