@@ -18,7 +18,7 @@ int verificaLinha(int matriz[9][9]){
         if(aux2!=9){
             return 0;
         }
-        for(cont = 0; cont <= 10; cont++) verif[cont] = 0;
+        for(cont = 0; cont <= 9; cont++) verif[cont] = 0;
         aux2 = 0;
         }
     else{
@@ -30,7 +30,7 @@ int verificaLinha(int matriz[9][9]){
         if(aux2!=9){
             return 0;
         }
-        for(cont = 0; cont <= 10; cont++) verif[cont] = 0;
+        for(cont = 0; cont <= 9; cont++) verif[cont] = 0;
         aux2 = 0;
         }
     }
@@ -44,29 +44,29 @@ int verificaColuna(int matriz[9][9]){
             aux1=matriz[j][i];
                 verif[aux1]+=1;
         }
-if (verif[0]>=1){    
-        for(k=0;k<=9;k++){
-            if(verif[k]<=1 || k==0){
-                aux2+=verif[k];
+        if (verif[0]>=1){    
+            for(k=0;k<=9;k++){
+                if(verif[k]<=1 || k==0){
+                    aux2+=verif[k];
+                }
             }
-        }
-        if(aux2!=9){
-            return 0;
-        }
-        for(cont = 0; cont <= 10; cont++) verif[cont] = 0;
-        aux2 = 0;
-        }
-    else{
-        for(k=0;k<=9;k++){
-            if(verif[k]==1){
-                aux2++;
+            if(aux2!=9){
+                return 0;
             }
+            for(cont = 0; cont <= 9; cont++) verif[cont] = 0;
+            aux2 = 0;
         }
-        if(aux2!=9){
-            return 0;
-        }
-        for(cont = 0; cont <= 10; cont++) verif[cont] = 0;
-        aux2 = 0;
+        else{
+            for(k=0;k<=9;k++){
+                if(verif[k]==1){
+                    aux2++;
+                }
+            }
+            if(aux2!=9){
+                return 0;
+            }
+            for(cont = 0; cont <= 9; cont++) verif[cont] = 0;
+            aux2 = 0;
         }
     }
     return 1;
@@ -91,7 +91,7 @@ int verificaCubo(int matriz[9][9]){
                         if(aux2!=9){
                             return 0;
                         }
-                        for(cont = 0; cont <= 10; cont++) verif[cont] = 0;
+                        for(cont = 0; cont <= 9; cont++) verif[cont] = 0;
                         aux2 = 0;
             }
             else{
@@ -103,7 +103,7 @@ int verificaCubo(int matriz[9][9]){
                 if(aux2!=9){
                     return 0;
                 }
-                for(cont = 0; cont <= 10; cont++) verif[cont] = 0;
+                for(cont = 0; cont <= 9; cont++) verif[cont] = 0;
                 aux2 = 0;
             }
         }
@@ -137,7 +137,6 @@ int main(){
             else{
                 printf("NAO\n");
             }
-        
         }
         else{
             printf("NAO\n");
