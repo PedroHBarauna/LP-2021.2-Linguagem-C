@@ -3,9 +3,9 @@
 #include <string.h>
 
 int verificaLinha(char matriz[9][9]){
-    int aux1=0, aux2=0, k, verif[10] = {0,0,0,0,0,0,0,0,0,0};
-    for(int i = 0; i < 9; i++){
-        for(int j = 0; j < 9; j++){
+    int i, j, cont, aux1=0, aux2=0, k, verif[10] = {0,0,0,0,0,0,0,0,0,0};
+    for(i = 0; i < 9; i++){
+        for(j = 0; j < 9; j++){
             aux1=matriz[i][j]-64;
             verif[aux1]+=1;
         }
@@ -20,16 +20,16 @@ int verificaLinha(char matriz[9][9]){
     if(aux2!=9){
         return 0;
     }
-    for(int cont = 0; cont < 10; cont++) verif[cont] = 0;
+    for(cont = 0; cont < 10; cont++) verif[cont] = 0;
     aux2 = 0;
     }
     return 1;
 }
 
 int verificaColuna(char matriz[9][9]){
-    int aux1=0, aux2=0, k, verif[10] = {0,0,0,0,0,0,0,0,0,0};
-    for(int i = 0; i < 9; i++){
-        for (int j = 0; j < 9; j++){
+    int i, j, cont, aux1=0, aux2=0, k, verif[10] = {0,0,0,0,0,0,0,0,0,0};
+    for(i = 0; i < 9; i++){
+        for (j = 0; j < 9; j++){
             aux1=matriz[j][i]-64;
                 verif[aux1]+=1;
         }
@@ -44,18 +44,18 @@ int verificaColuna(char matriz[9][9]){
     if(aux2!=9){
         return 0;
     }
-    for(int cont = 0; cont < 10; cont++) verif[cont] = 0;
+    for(cont = 0; cont < 10; cont++) verif[cont] = 0;
     aux2 = 0;
     }
     return 1;
 }
 
 int verificaCubo(char matriz[9][9]){
-    int aux1=0, aux2=0, k, verif[10] = {0,0,0,0,0,0,0,0,0,0};
-    for(int m = 0; m < 9; m += 3){
-        for(int n = 0; n < 9; n += 3){
-            for(int i = m; i < m + 3; i++){
-                for(int j = n; j < n + 3; j++){
+    int i, j, m, n, cont, aux1=0, aux2=0, k, verif[10] = {0,0,0,0,0,0,0,0,0,0};
+    for(m = 0; m < 9; m += 3){
+        for(n = 0; n < 9; n += 3){
+            for(i = m; i < m + 3; i++){
+                for(j = n; j < n + 3; j++){
                     aux1= matriz[i][j]-64;
                         verif[aux1]+=1;
                 }
@@ -72,7 +72,7 @@ int verificaCubo(char matriz[9][9]){
                 return 0;
             }
 
-            for(int cont = 0; cont < 10; cont++) verif[cont] = 0;
+            for(cont = 0; cont < 10; cont++) verif[cont] = 0;
             aux2 = 0;
         }
     }
@@ -81,12 +81,12 @@ int verificaCubo(char matriz[9][9]){
 
 int main(){
     char matriz[9][9];
-	int num;
+	int num, k, i, j;
     scanf("%d", &num);
 
-    for(int k = 1; k <= num; k++){
-        for(int i = 0; i < 9; i++){
-            for(int j = 0; j < 9; j++){
+    for(k = 1; k <= num; k++){
+        for(i = 0; i < 9; i++){
+            for(j = 0; j < 9; j++){
                 scanf(" %c", &matriz[i][j]);
             }
         }
