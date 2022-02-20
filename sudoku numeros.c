@@ -98,17 +98,17 @@ int main(){
             if(verificaColuna(matriz) == 1)
             {
                 if(verificaCubo(matriz) == 1)
-                    printf("SIM\n");
+                    printf("SIM\n\n");
                 else
-                    printf("NAO\n");
+                    printf("NAO\n\n");
             }
             else{
-                printf("NAO\n");
+                printf("NAO\n\n");
             }
         
         }
         else{
-            printf("NAO\n");
+            printf("NAO\n\n");
         }
 
     }
